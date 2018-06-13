@@ -1,17 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('First') {
+    stage('Build') {
       steps {
         bat(returnStatus: true, script: 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\hello.py')
       }
     }
-    stage('Second') {
+    stage('Test') {
       steps {
         sleep(unit: 'SECONDS', time: 10)
       }
     }
-    stage('Third') {
+    stage('Deploy') {
       steps {
         echo 'Bye!'
       }
