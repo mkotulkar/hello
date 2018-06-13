@@ -7,17 +7,11 @@ pipeline {
       }
     }
     stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
-            echo 'Code compilation activity started.'
-          }
-        }
-        stage('') {
-          steps {
-            bat(script: 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\chdir.py', returnStatus: true)
-          }
-        }
+      steps {
+        echo 'Code compilation activity started.'
+        bat 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\chdir.py'
+        bat(script: 'mvn compile', returnStatus: true)
+        waitUntil()
       }
     }
     stage('Test') {
