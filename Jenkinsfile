@@ -3,12 +3,21 @@ pipeline {
   stages {
     stage('Pull latest code') {
       steps {
-        bat(returnStatus: true, script: 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\hello.py')
+        echo 'Get latest code from Git'
       }
     }
     stage('Build') {
-      steps {
-        sleep(unit: 'SECONDS', time: 10)
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'Code compilation activity started.'
+          }
+        }
+        stage('') {
+          steps {
+            bat(script: 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\chdir.py', returnStatus: true)
+          }
+        }
       }
     }
     stage('Test') {
