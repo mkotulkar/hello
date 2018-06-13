@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('First') {
       steps {
-        bat(returnStatus: true, script: 'python C:\\Manish\\Personal\\Amazon\\Materials\\Python\\hello.py')
+        bat(returnStatus: true, script: 'C:\\Project\\software\\pythonInstallDirectory\\python.exe C:\\Manish\\Personal\\Amazon\\Materials\\Python\\hello.py')
       }
     }
     stage('Second') {
